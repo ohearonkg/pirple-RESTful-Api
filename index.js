@@ -24,11 +24,15 @@ var server = http.createServer(function(req, res) {
   // Remove leading and trailing slash
   var trimmedPath = path.replace(/^\/+|\/+$/g, "");
 
+  // Get the HTTP method force to case
+  var method = req.method.toLocaleLowerCase();
+
   // Send the response
   res.end("Hello World!");
 
   // Log the path requested
   console.log("Path Requested: " + trimmedPath + "\n");
+  console.log("Method: " + method + "\n");
 });
 
 // Start the server, and have it run on port 3000
