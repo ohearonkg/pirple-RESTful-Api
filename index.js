@@ -67,8 +67,6 @@ var server = http.createServer(function(req, res) {
         ? router[trimmedPath]
         : handlers.notFound;
 
-    console.log(choosenHandler);
-
     /**
      * Construct the data object to
      * be stringified and sent back
@@ -96,6 +94,7 @@ var server = http.createServer(function(req, res) {
       var payloadString = JSON.stringify(payload);
 
       // Return the response
+      res.setHeader("Content-Type", "application/json");
       res.writeHead(statusCode);
       res.end(payloadString);
 
