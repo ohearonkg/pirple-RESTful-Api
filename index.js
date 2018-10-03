@@ -30,13 +30,17 @@ var server = http.createServer(function(req, res) {
   // Get the HTTP method force to case
   var method = req.method.toLocaleLowerCase();
 
+  // Get the headers object
+  var headers = req.headers;
+
   // Send the response
   res.end("Hello World!");
 
   // Log the path requested
   console.log("Path Requested: ", trimmedPath);
   console.log("Method: ", method);
-  console.log("Query String: ", queryString, "\n");
+  console.log("Query String: ", queryString);
+  console.log("Headers: ", headers, "\n");
 });
 
 // Start the server, and have it run on port 3000
