@@ -14,8 +14,8 @@ var server = http.createServer(function(req, res) {
 });
 
 // Instantiation HTTP server
-server.listen(config.port, function() {
-  console.log("The server is listening on port ", config.port);
+server.listen(config.httpPort, function() {
+  console.log("The server is listening on port ", config.httpPort);
 });
 
 /**
