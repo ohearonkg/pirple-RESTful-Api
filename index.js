@@ -4,18 +4,35 @@
 
 // Dependancies
 var http = require("http");
+var https = require("https");
 var url = require("url");
 var StringDecoder = require("string_decoder").StringDecoder;
 var config = require("./config");
+var fs = require("fs");
 
 // Creating the HTTP server
-var server = http.createServer(function(req, res) {
+var httpServer = http.createServer(function(req, res) {
   unifiedServer(req, res);
 });
 
 // Instantiation HTTP server
-server.listen(config.httpPort, function() {
-  console.log("The server is listening on port ", config.httpPort);
+httpServer.listen(config.httpPort, function() {
+  console.log("The HTTP server is listening on port ", config.httpPort);
+});
+
+// Creating the HTTPS Server
+var httpsServerOptions = {
+  key: fs.readFileSync("./https/key.pem"),
+  cert: fs.readFileSync("./https/cert.pem")
+};
+
+var httpsServer = https.createServer(httpsServerOptions, function(req, res) {
+  unifiedServer(req, res);
+});
+
+// Instantiation of HTTPS Server
+httpsServer.listen(config.httpsPort, function() {
+  console.log("The HTTPS server is listening on port ", config.httpsPort);
 });
 
 /**
