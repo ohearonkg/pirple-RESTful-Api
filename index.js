@@ -8,8 +8,21 @@ var url = require("url");
 var StringDecoder = require("string_decoder").StringDecoder;
 var config = require("./config");
 
-// Server should respond with a string
+// Creating the HTTP server
 var server = http.createServer(function(req, res) {
+  unifiedServer(req, res);
+});
+
+// Instantiation HTTP server
+server.listen(config.port, function() {
+  console.log("The server is listening on port ", config.port);
+});
+
+/**
+ * The logic for both the HTTP and HTTPS
+ * servers
+ */
+var unifiedServer = function(req, res) {
   /**
    * Get the url requested and parse it.
    *
@@ -108,13 +121,7 @@ var server = http.createServer(function(req, res) {
       console.log(payloadString);
     });
   });
-});
-
-// Start the server, and have it run on port 3000
-server.listen(config.port, function() {
-  console.log("The server is listening on port ", config.port);
-  console.log("Enviornment Name ", config.envName);
-});
+};
 
 // Defining our handlers
 var handlers = {};

@@ -9,7 +9,8 @@ var enviornments = {};
  * Staging
  */
 enviornments.staging = {
-  port: 3000,
+  httpPort: 3000,
+  httpsPort: 3001,
   envName: "STAGING"
 };
 
@@ -17,7 +18,8 @@ enviornments.staging = {
  * Production
  */
 enviornments.production = {
-  port: 5000,
+  httpPort: 5000,
+  httpsPort: 5001,
   envName: "PRODUCTION"
 };
 
