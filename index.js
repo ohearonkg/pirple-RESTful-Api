@@ -13,8 +13,13 @@ var _data = require("./lib/data");
 /**
  * DELETE THIS
  */
-_data.create("sample", "sampleFile", { name: "KG" }, function(error) {
+// _data.create("sample", "sampleFile", { name: "KG" }, function(error) {
+//   console.log("The Error Was ", error);
+// });
+
+_data.read("sample", "sampleFile", function(error, data) {
   console.log("The Error Was ", error);
+  console.log("The Data Was ", data);
 });
 
 var httpServer = http.createServer(function(req, res) {
