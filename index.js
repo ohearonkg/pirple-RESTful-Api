@@ -11,6 +11,7 @@ var config = require("./config");
 var fs = require("fs");
 var _data = require("./lib/data");
 
+// Create HTTP Server
 var httpServer = http.createServer(function(req, res) {
   unifiedServer(req, res);
 });
