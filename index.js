@@ -17,9 +17,14 @@ var _data = require("./lib/data");
 //   console.log("The Error Was ", error);
 // });
 
-_data.read("sample", "sampleFile", function(error, data) {
-  console.log("The Error Was ", error);
-  console.log("The Data Was ", data);
+_data.update("sample", "sampleFile", { name: "sarah" }, function(error, data) {
+  console.log("Error Updating the file ", error);
+  if (!error) {
+    _data.read("sample", "sampleFile", function(error, data) {
+      console.log("The Error Was ", error);
+      console.log("The Data Was ", data);
+    });
+  }
 });
 
 var httpServer = http.createServer(function(req, res) {
