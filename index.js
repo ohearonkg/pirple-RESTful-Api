@@ -59,7 +59,7 @@ var unifiedServer = function(req, res) {
   var trimmedPath = path.replace(/^\/+|\/+$/g, "");
 
   // Get the query string as an object
-  var queryString = parsedUrl.query;
+  var queryStringObject = parsedUrl.query;
 
   // Get the HTTP method force to case
   var method = req.method.toLocaleLowerCase();
@@ -107,7 +107,7 @@ var unifiedServer = function(req, res) {
      */
     var data = {
       trimmedPath: trimmedPath,
-      querySting: queryString,
+      queryStringObject: queryStringObject,
       method: method,
       headers: headers,
       payload: helpers.parseJsonToObject(buffer)
