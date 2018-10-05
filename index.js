@@ -131,9 +131,9 @@ var unifiedServer = function(req, res) {
       res.writeHead(statusCode);
       res.end(payloadString);
 
-      console.log("REQUEST");
-      console.log(data);
-      console.log();
+      // console.log("REQUEST");
+      // console.log(data);
+      // console.log();
 
       console.log("RESPONSE");
       console.log("Status Code ", statusCode);
